@@ -1,0 +1,16 @@
+---
+description: Contexto mínimo e mudanças locais no TerroirMind AI
+alwaysApply: true
+---
+
+# TerroirMind AI
+
+Ideia e autoria: Herbert Felipe. IA especialista em vinhos, destilados, charutos e cafés especiais: identifica rótulos (texto ou foto), harmoniza com o prato do dia, sugere pelo paladar e monta o Combo Vícios Elegantes (charuto + bebida ou café). Tom: poético, porém didático, para leigos. Sotaque nordestino no catálogo (Vale do São Francisco, Pitú, bolo de rolo, cartola, café de Taquaritinga do Norte).
+
+Arquivos: `GUIA_SOMMELIER_DIDATICO.md` (manual, seções A, B e C), `sommelai_engine.py` (motor), `consulta_exemplo.json` (entrada de exemplo), `degustacao_resultado.json` (saída do script, com histórico), `precos_referencia.csv` (preços anotados à mão por Herbert).
+
+A IA de visão (Gemini) só transcreve o rótulo. Perfil sensorial, notas e harmonização saem sempre do catálogo e das regras do Python, nunca do modelo.
+
+Fontes externas: nada de raspar site de loja (a DLP Vinhos bloqueia robôs de IA no robots.txt); preço só pelo CSV manual ou por arquivo enviado pela loja. Não inventar preço. Base ou API externa só com licença que permita reuso (ex.: CC0, MIT, Apache nos dados), nunca dados raspados de loja.
+
+Mudança pedida: editar só o trecho. Manter as seções A, B e C do guia, a CLI e as tuplas `CATALOGO` e `PRATOS`. Python só com biblioteca padrão. Responder em português. Não reescrever arquivo inteiro e não trocar a arquitetura. Notas de harmonização saem rodando o script.

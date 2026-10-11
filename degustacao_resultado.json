@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "projeto": "TerroirMind AI",
+    "engine": "SommelAIEngine",
+    "versao": "1.0.0",
+    "autor": "Herbert Felipe",
+    "lema": "Do terroir à mente, do gole à memória.",
+    "gerado_em": "2026-10-11T20:13:40-03:00",
+    "guia": "GUIA_SOMMELIER_DIDATICO.md"
+  },
+  "consulta": {
+    "tipo_consulta": "Harmonização por Prato",
+    "categoria": "",
+    "entrada": "Carne de sol com macaxeira e manteiga de garrafa",
+    "imagem": ""
+  },
+  "identificacao": {
+    "texto": "Carne de sol com macaxeira e manteiga de garrafa",
+    "metodo": "texto",
+    "confianca": "alta",
+    "observacao": ""
+  },
+  "prato": {
+    "chave": "carne-de-sol",
+    "nome": "Carne de sol com macaxeira e manteiga de garrafa",
+    "momento": "principal",
+    "maritimo": false,
+    "terra": "Nordeste",
+    "peso": 4,
+    "gordura": 4,
+    "acidez": 0,
+    "docura": 1,
+    "picancia": 0,
+    "sal": 4,
+    "familias": [
+      "tostado",
+      "cremoso"
+    ]
+  },
+  "preferencias": null,
+  "protagonista": {
+    "chave": "syrah",
+    "nome": "Syrah / Shiraz",
+    "marca": "",
+    "categoria": "Vinho",
+    "estilo": "Tinto intenso e especiado",
+    "origem": "Vale do Rhône (França), Barossa (Austrália), Vale do São Francisco (PE/BA, Brasil)",
+    "ficha": {
+      "Tipo": "Tinto",
+      "Teor alcoólico típico": "13,5–15%"
+    },
+    "descricao_didatica": {
+      "aromas": [
+        "amora",
+        "pimenta-do-reino",
+        "azeitona preta",
+        "defumado",
+        "violeta"
+      ],
+      "ataque": "Fruta negra intensa, com um estalo de pimenta no meio da língua.",
+      "eixos": [
+        {
+          "eixo": "corpo",
+          "rotulo": "Corpo",
+          "nivel": 4,
+          "explicacao": "Como leite integral: denso, cobre a língua como veludo."
+        },
+        {
+          "eixo": "acidez",
+          "rotulo": "Acidez",
+          "nivel": 3,
+          "explicacao": "Média: refresca como morder uma maçã."
+        },
+        {
+          "eixo": "docura",
+          "rotulo": "Doçura",
+          "nivel": 1,
+          "explicacao": "Seco: nenhum açúcar perceptível."
+        },
+        {
+          "eixo": "estrutura",
+          "rotulo": "Taninos",
+          "nivel": 4,
+          "explicacao": "Taninos firmes: secam a boca como casca de uva mastigada."
+        },
+        {
+          "eixo": "intensidade",
+          "rotulo": "Intensidade",
+          "nivel": 5,
+          "explicacao": "Exuberante: perfuma o ambiente."
+        }
+      ],
+      "retrossabor": {
+        "descricao": "Pimenta, defumado e amora, longo e quente.",
+        "persistencia": 4,
+        "explicacao": "Longa: 20 a 40 segundos de memória."
+      },
+      "poesia": "Pimenta e amora dançando um xaxado: intensidade com ginga nordestina."
+    },
+    "dica_servico": {
+      "temperatura": {
+        "rotulo": "Temperatura",
+        "texto": "16–18 °C."
+      },
+      "utensilio": {
+        "rotulo": "Taça",
+        "texto": "Taça Bordeaux ou de bojo amplo."
+      },
+      "ritual": {
+        "rotulo": "Decantação",
+        "texto": "Decante 30 min se for jovem."
+      }
+    },
+    "classicos": [
+      "Carne de sol com macaxeira",
+      "Cordeiro com especiarias",
+      "Churrasco"
+    ]
+  },
+  "harmonizacao": {
+    "titulo": "Harmonização recomendada · Carne de sol com macaxeira e manteiga de garrafa",
+    "sugestoes": [
+      {
+        "chave": "syrah",
+        "nome": "Syrah / Shiraz",
+        "categoria": "Vinho",
+        "nota": 83,
+        "veredito": "Ótima companhia",
+        "motivos": [
+          "Peso com peso: bebida e prato têm a mesma intensidade (4/5).",
+          "Contraste: os taninos limpam a gordura e preparam a próxima garfada.",
+          "O que cresce junto, combina junto: sotaque nordestino dos dois lados."
+        ]
+      },
+      {
+        "chave": "malbec",
+        "nome": "Malbec",
+        "categoria": "Vinho",
+        "nota": 78,
+        "veredito": "Ótima companhia",
+        "motivos": [
+          "Peso com peso: bebida e prato têm a mesma intensidade (4/5).",
+          "Contraste: os taninos limpam a gordura e preparam a próxima garfada."
+        ]
+      },
+      {
+        "chave": "cabernet-sauvignon",
+        "nome": "Cabernet Sauvignon",
+        "categoria": "Vinho",
+        "nota": 74,
+        "veredito": "Ótima companhia",
+        "motivos": [
+          "Peso com peso: bebida e prato têm a mesma intensidade (4/5).",
+          "Contraste: os taninos limpam a gordura e preparam a próxima garfada.",
+          "O sal realça o amargor de taninos muito firmes."
+        ]
+      }
+    ]
+  },
+  "alternativas": [],
+  "onde_encontrar": [],
+  "historico": [
+    {
+      "gerado_em": "2026-10-11T20:13:40-03:00",
+      "tipo_consulta": "Harmonização por Prato",
+      "categoria": "",
+      "entrada": "Carne de sol com macaxeira e manteiga de garrafa",
+      "protagonista": "Syrah / Shiraz",
+      "melhor_par": "Syrah / Shiraz",
+      "nota": 83
+    },
+    {
+      "gerado_em": "2026-10-11T19:52:01-03:00",
+      "tipo_consulta": "Harmonização por Prato",
+      "categoria": "",
+      "entrada": "Carne de sol com macaxeira e manteiga de garrafa",
+      "protagonista": "Syrah / Shiraz",
+      "melhor_par": "Syrah / Shiraz",
+      "nota": 83
+    },
+    {
+      "gerado_em": "2026-10-11T19:52:01-03:00",
+      "tipo_consulta": "Harmonização por Prato",
+      "categoria": "",
+      "entrada": "caldinho de feijão",
+      "protagonista": "Cachaça Prata",
+      "melhor_par": "Cachaça Prata",
+      "nota": 81
+    },
+    {
+      "gerado_em": "2026-10-11T19:52:00-03:00",
+      "tipo_consulta": "Combo Vícios Elegantes (Charuto + Bebida/Café)",
+      "categoria": "Charuto",
+      "entrada": "Romeo y Julieta Churchill",
+      "protagonista": "Romeo y Julieta Churchill",
+      "melhor_par": "Cognac VSOP",
+      "nota": 89
+    },
+    {
+      "gerado_em": "2026-10-11T19:52:00-03:00",
+      "tipo_consulta": "Sugestão por Paladar",
+      "categoria": "Café",
+      "entrada": "doce, com chocolate e pouco amargo",
+      "protagonista": "Café do Agreste Pernambucano (Taquaritinga do Norte)",
+      "melhor_par": "Queijo coalho grelhado com mel de engenho",
+      "nota": 91
+    },
+    {
+      "gerado_em": "2026-10-11T19:51:59-03:00",
+      "tipo_consulta": "Análise de Rótulo",
+      "categoria": "",
+      "entrada": "Lagavulin 16",
+      "protagonista": "Lagavulin 16 Anos",
+      "melhor_par": "Costela suína ao barbecue",
+      "nota": 81
+    }
+  ]
+}

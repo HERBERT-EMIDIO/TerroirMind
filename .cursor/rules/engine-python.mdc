@@ -1,0 +1,16 @@
+---
+description: Convenções do SommelAIEngine
+globs: sommelai_engine.py
+alwaysApply: false
+---
+
+# Motor
+
+- Biblioteca padrão. Níveis sensoriais inteiros de 1 a 5. `estrutura` muda de sentido por categoria: taninos (vinho), calor alcoólico (destilado), fortaleza (charuto), amargor (café).
+- Novo estilo ou rótulo: entrada em `CATALOGO` (`Perfil`). Estilo tem `marca` vazia e entra nas sugestões; rótulo tem `marca` e só é alvo de identificação. Rótulo novo só com ficha técnica do produtor. Novo prato: entrada em `PRATOS`, com `maritimo=True` para peixes e frutos do mar. Não criar outro script.
+- Regras de harmonização em `pontuar_prato`, `pontuar_combo` e `pontuar_paladar`. Cada regra soma ou subtrai pontos e deixa um motivo em português. Toda regra nova entra também na Seção C do guia.
+- Vocabulário do paladar em `PALADAR_EIXOS` e `PALADAR_FAMILIAS` (chaves normalizadas, sem acento). Negação por `NEGACOES`, reforço por `INTENSIFICADORES`.
+- CLI sobrescreve o JSON. Saída: `degustacao_resultado.json` ao lado do script, UTF-8, com `historico` (mais recente primeiro, até `HISTORICO_MAX`). `--config` aceita a entrada plana ou o JSON exportado.
+- Preços: `carregar_precos` lê `precos_referencia.csv` (separador `;`, colunas `chave;loja;produto;preco;data;cidade;link`, `#` é comentário). Linha inválida vira aviso, não erro. `ofertas_para` liga as ofertas ao protagonista e às bebidas e charutos sugeridos (até `OFERTAS_MAX`); preço com mais de `PRECO_VALIDADE_DIAS` ganha aviso. Preço nunca entra na nota de harmonização.
+- Foto: `ler_rotulo_por_imagem` chama o Gemini (`GEMINI_API_KEY`, `GEMINI_MODEL`) só para transcrever. Sem chave, usa o nome do arquivo.
+- Depois de mexer em regra ou catálogo, rodar `python sommelai_engine.py` e conferir: picanha com Syrah no topo, ceviche com Sauvignon Blanc, queijo azul com Porto Tawny, frituras com Espumante Brut, bolo de rolo com café.

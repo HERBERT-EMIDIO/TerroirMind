@@ -1,0 +1,13 @@
+# TerroirMind AI · preços de referência, anotados à mão por Herbert Felipe.
+# Uma linha por oferta, separada por ponto e vírgula. Linhas com # são ignoradas.
+#   chave   = chave do catálogo (veja: python sommelai_engine.py --listar)
+#   loja    = onde você viu o preço (ex.: DLP Vinhos)
+#   produto = garrafa, charuto ou pacote exato, com volume ou peso
+#   preco   = em reais, com vírgula (ex.: 89,90)
+#   data    = dia em que você viu o preço (AAAA-MM-DD ou DD/MM/AAAA)
+#   cidade e link são opcionais
+# Mesma chave pode ter várias ofertas; o motor mostra as duas mais baratas.
+# Preço com mais de 30 dias aparece com aviso para conferir.
+# Exemplo (tire o # e troque pelos dados reais que você viu na loja):
+# syrah;DLP Vinhos;Nome do Syrah 750 ml;89,90;2026-10-11;Recife/PE;https://www.dlpvinhos.com.br/
+chave;loja;produto;preco;data;cidade;link

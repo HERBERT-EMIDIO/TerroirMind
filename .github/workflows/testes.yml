@@ -1,0 +1,58 @@
+name: Testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  motor:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: As quatro consultas, o JSON de exemplo e as listagens
+        run: |
+          python sommelai_engine.py --tipo rotulo --entrada "Lagavulin 16" --json-only > /dev/null
+          python sommelai_engine.py --tipo prato --categoria vinho --entrada "picanha na brasa" --json-only > /dev/null
+          python sommelai_engine.py --tipo paladar --categoria cafe --entrada "doce, com chocolate e pouco amargo" --json-only > /dev/null
+          python sommelai_engine.py --tipo combo --entrada "Cohiba Siglo VI" --json-only > /dev/null
+          python sommelai_engine.py --config consulta_exemplo.json --json-only > /dev/null
+          python sommelai_engine.py --listar > /dev/null
+          python sommelai_engine.py --listar precos
+
+      - name: Entrada desconhecida sai com código 2
+        run: |
+          set +e
+          python sommelai_engine.py --tipo prato --entrada "xyzxyz" --json-only
+          test $? -eq 2
+
+      - name: Os clássicos continuam no topo
+        run: |
+          python - <<'EOF'
+          from sommelai_engine import SommelAIEngine
+
+          engine = SommelAIEngine()
+          esperado = {
+              "picanha": "syrah",
+              "ceviche": "sauvignon-blanc",
+              "queijo azul": "porto-tawny",
+              "frituras": "espumante-brut",
+          }
+          falhas = []
+          for prato, chave in esperado.items():
+              topo = engine.consultar_dict({"tipo_consulta": "prato", "entrada": prato})["harmonizacao"]["sugestoes"][0]
+              print(f"{prato}: {topo['nome']} {topo['nota']}")
+              if topo["chave"] != chave:
+                  falhas.append(f"{prato}: esperava {chave}, veio {topo['chave']}")
+          topo = engine.consultar_dict({"tipo_consulta": "prato", "entrada": "bolo de rolo"})["harmonizacao"]["sugestoes"][0]
+          print(f"bolo de rolo: {topo['nome']} {topo['nota']}")
+          if topo["categoria"] != "Café":
+              falhas.append(f"bolo de rolo: esperava café, veio {topo['nome']}")
+          raise SystemExit("\n".join(falhas) or 0)
+          EOF
