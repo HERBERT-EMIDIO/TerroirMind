@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TerroirMind AI · Sommelier de bolso</title>
+    <meta name="description" content="Vinhos, destilados, charutos e cafés especiais: identifica o rótulo, harmoniza com o prato do dia e ensina. Uma ideia de Herbert Felipe.">
+    <meta property="og:title" content="TerroirMind AI">
+    <meta property="og:description" content="Do terroir à mente, do gole à memória. Sommelier de bolso para vinhos, destilados, charutos e cafés especiais.">
+    <meta name="theme-color" content="#5b1a2e">
+    <link rel="stylesheet" href="assets/app.css?v=1">
+</head>
+<body>
+<header class="topbar">
+    <div class="topbar-inner">
+        <div class="brand">
+            <strong>TerroirMind AI</strong>
+            <span>Do terroir à mente, do gole à memória.</span>
+        </div>
+        <span class="busy" id="busy">Abrindo a adega…</span>
+        <nav class="tabs" id="tabs">
+            <button data-tab="consultar" class="active">Consultar</button>
+            <button data-tab="catalogo">Catálogo</button>
+            <button data-tab="manual">Manual</button>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="banner" id="banner" hidden></div>
+
+    <section class="tab active" id="tab-consultar">
+        <div class="layout">
+            <aside class="stack">
+                <form class="card form" id="form" autocomplete="off">
+                    <div class="field">
+                        <label>O que você quer?</label>
+                        <div class="types" id="types">
+                            <button type="button" data-tipo="prato" class="active"><b>Harmonizar um prato</b><small>O que beber com o prato do dia</small></button>
+                            <button type="button" data-tipo="rotulo"><b>Analisar um rótulo</b><small>Nome ou foto da garrafa, charuto ou café</small></button>
+                            <button type="button" data-tipo="paladar"><b>Sugerir pelo paladar</b><small>Conte do que você gosta</small></button>
+                            <button type="button" data-tipo="combo"><b>Combo Vícios Elegantes</b><small>Charuto + bebida ou café</small></button>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Categoria</label>
+                        <div class="chips tight" id="categorias">
+                            <button type="button" class="chip active" data-categoria="">Todas</button>
+                            <button type="button" class="chip" data-categoria="Vinho">Vinho</button>
+                            <button type="button" class="chip" data-categoria="Destilado">Destilado</button>
+                            <button type="button" class="chip" data-categoria="Charuto">Charuto</button>
+                            <button type="button" class="chip" data-categoria="Café">Café</button>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="entrada" id="entrada-label">Prato do dia</label>
+                        <input id="entrada" list="sugestoes" maxlength="200" enterkeyhint="search">
+                        <datalist id="sugestoes"></datalist>
+                        <div class="chips tight examples" id="exemplos"></div>
+                    </div>
+                    <div class="field foto" id="foto-field" hidden>
+                        <label for="foto">Ou tire uma foto do rótulo</label>
+                        <input id="foto" type="file" accept="image/*" capture="environment">
+                        <div class="hint" id="foto-hint"></div>
+                    </div>
+                    <div class="error" id="erro"></div>
+                    <div class="actions">
+                        <button class="btn primary" id="consultar" type="submit">Consultar</button>
+                        <button class="btn" id="compartilhar" type="button" hidden>Copiar link desta consulta</button>
+                    </div>
+                </form>
+
+                <details class="card help" id="ia-card">
+                    <summary>Foto do rótulo: chave do Gemini (grátis)</summary>
+                    <p class="small muted" id="ia-status"></p>
+                    <ol class="small">
+                        <li>Entre em <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> com uma conta Google.</li>
+                        <li>Clique em <b>Create API key</b> e copie a chave.</li>
+                        <li>Cole abaixo e salve.</li>
+                    </ol>
+                    <div class="field">
+                        <label for="ia-chave">Chave Gemini</label>
+                        <input id="ia-chave" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…">
+                    </div>
+                    <div class="actions">
+                        <button class="btn primary" id="ia-salvar" type="button">Salvar chave</button>
+                        <button class="btn" id="ia-apagar" type="button">Apagar chave</button>
+                    </div>
+                    <p class="small muted">A chave fica só neste navegador. A foto vai para o Google, que apenas transcreve o rótulo; o perfil sensorial e as notas saem do catálogo do TerroirMind, nunca da IA. No plano grátis, o Google pode usar o envio para melhorar os produtos dele.</p>
+                </details>
+
+                <div class="card small" id="recentes-card" hidden>
+                    <h2>Últimas consultas</h2>
+                    <div class="chips tight" id="recentes"></div>
+                </div>
+            </aside>
+
+            <div class="stack" id="resultado">
+                <div class="card welcome">
+                    <p class="eyebrow">Sommelier de bolso</p>
+                    <h1>Diga o prato, o rótulo ou o seu gosto.</h1>
+                    <p>O TerroirMind identifica, harmoniza e, acima de tudo, explica o porquê: aroma, corpo, acidez, taninos e retrossabor em linguagem do dia a dia. Vinhos, destilados, charutos e cafés especiais, com sotaque nordestino.</p>
+                    <p class="muted small" id="motor-status">Preparando o motor. Na primeira visita leva alguns segundos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab" id="tab-catalogo">
+        <p class="muted">Toque em um item para consultar.</p>
+        <div class="catalogo" id="catalogo"><p class="muted">Carregando catálogo…</p></div>
+    </section>
+
+    <section class="tab" id="tab-manual">
+        <article class="card manual" id="manual"><p class="muted">Carregando manual…</p></article>
+    </section>
+</main>
+
+<footer class="rodape">
+    <p><b>TerroirMind AI</b> · ideia original de <b>Herbert Felipe</b> · <a href="https://github.com/HERBERT-EMIDIO/TerroirMind" target="_blank" rel="noopener">código no GitHub</a> (MIT)</p>
+    <p class="muted small">Bebidas alcoólicas e charutos são para maiores de 18 anos. Beba com moderação, não dirija depois de beber; o tabaco faz mal à saúde. Preços, quando aparecem, são de referência e anotados à mão.</p>
+</footer>
+
+<div id="toast" role="status"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.29.3/full/pyodide.js"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>

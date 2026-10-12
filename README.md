@@ -9,6 +9,10 @@ que identifica, harmoniza e, acima de tudo, ensina.*
 
 Idealizado e criado por **Herbert Felipe**
 
+### [Abrir o TerroirMind no navegador](https://herbert-emidio.github.io/TerroirMind/)
+
+*Funciona no celular, sem instalar nada.*
+
 [![Testes](https://github.com/HERBERT-EMIDIO/TerroirMind/actions/workflows/testes.yml/badge.svg)](https://github.com/HERBERT-EMIDIO/TerroirMind/actions/workflows/testes.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB)
 ![Dependências](https://img.shields.io/badge/depend%C3%AAncias-zero-2ea44f)
@@ -59,6 +63,15 @@ Toda resposta traz três blocos fixos:
 | **Cafés** | Corpo, acidez, doçura, amargor, processo, torra e pontuação SCA | Cerrado Mineiro Natural, Etiópia Yirgacheffe Lavado, Fermentado Anaeróbico, Mantiqueira Cereja Descascado, Agreste Pernambucano, Geisha do Panamá, Espresso de torra escura | **Amargor**: da fruta brilhante ao chocolate 85% |
 
 O manual completo, escrito para quem nunca provou nada com atenção, está em [`GUIA_SOMMELIER_DIDATICO.md`](GUIA_SOMMELIER_DIDATICO.md).
+
+## No navegador
+
+Abra **[herbert-emidio.github.io/TerroirMind](https://herbert-emidio.github.io/TerroirMind/)**. A página roda o próprio `sommelai_engine.py` dentro do navegador (com [Pyodide](https://pyodide.org)), então as respostas são as mesmas da linha de comando. Na primeira visita o motor leva alguns segundos para carregar.
+
+- Escolha o tipo de consulta, a categoria e escreva (ou toque em um exemplo).
+- **Foto do rótulo:** pela câmera do celular, com uma chave grátis do Gemini salva só no seu navegador. O Gemini apenas transcreve o rótulo.
+- **Copiar link desta consulta** gera um endereço que abre direto no resultado, bom para mandar aos amigos. Exemplo: [picanha na brasa](https://herbert-emidio.github.io/TerroirMind/?tipo=prato&entrada=Picanha%20na%20brasa).
+- As abas **Catálogo** e **Manual** trazem tudo o que o motor conhece e o guia completo.
 
 ## Início rápido
 
@@ -265,6 +278,8 @@ As chaves são fixas para que uma interface web ou mobile consiga ler qualquer c
 ```text
 TerroirMind/
 ├── README.md                     você está aqui
+├── index.html                    o site (GitHub Pages)
+├── assets/app.js, app.css        interface; carrega o motor com Pyodide
 ├── GUIA_SOMMELIER_DIDATICO.md    o manual para iniciantes (Seções A, B e C)
 ├── sommelai_engine.py            o motor (SommelAIEngine), só biblioteca padrão
 ├── consulta_exemplo.json         entrada de exemplo para --config
@@ -277,8 +292,8 @@ TerroirMind/
 
 ## Roadmap
 
-- [ ] Página web estática (GitHub Pages) rodando o próprio `sommelai_engine.py` no navegador com Pyodide, como no planejador de maratona.
-- [ ] Câmera no celular para fotografar o rótulo direto da página.
+- [x] Página web estática (GitHub Pages) rodando o próprio `sommelai_engine.py` no navegador com Pyodide, como no planejador de maratona.
+- [x] Câmera no celular para fotografar o rótulo direto da página.
 - [ ] Mais rótulos brasileiros, com ficha do produtor: espumantes da Serra Gaúcha, tintos do Vale do São Francisco, cachaças de alambique e cafés de microlote.
 - [ ] Diário de degustação: transformar o `historico` em um caderno de provas com notas pessoais.
 - [ ] Modo "aula": um roteiro de degustação guiada, passo a passo, a partir do guia.
